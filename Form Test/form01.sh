@@ -1,12 +1,13 @@
 #!/bin/sh
 
-zenity --forms --title="Add Friend" \
-	--text="Enter information about your friend." \
+zenity --forms --title="Sale" \
+	--text="Enter information for the sale." \
 	--separator="," \
-	--add-entry="First Name" \
-	--add-entry="Family Name" \
-	--add-entry="Email" \
-	--add-calendar="Birthday" >> addr.csv
+	--add-entry="Buyers Name" \
+	--add-entry="Product Name" \
+	--add-entry="Quantity" \
+	--add-entry="Due" \
+	--add-calendar="Date" >> addr.csv
 
 case $? in
     0)
