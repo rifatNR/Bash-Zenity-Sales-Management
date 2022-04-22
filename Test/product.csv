@@ -1,5 +1,6 @@
 Name,Price,Stock
 Poteto,50,1000
 Chips,10,5000
-Biscuits,60,500
-Juice,70,20
+Biscuits,60,
+Juice,,20
+Mobile,500,7
