@@ -18,3 +18,7 @@ zenity --list \
 	done < $file
 
 IFS=$OLDIFS
+
+
+
+# Result: ERRORS

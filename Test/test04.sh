@@ -10,3 +10,7 @@ replace="Clock"
 if [[ $search != "" && $replace != "" ]]; then
 sed -i "s/$search/$replace/" $file
 fi
+
+
+
+# Result : Just changes all Chips word to Clock
