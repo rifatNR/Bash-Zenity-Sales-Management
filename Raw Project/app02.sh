@@ -21,8 +21,7 @@ do
 	NAMES+=($name)
 	PRICES+=($price)
 	STOCKS+=($stock)
-	
-	echo -e $id,$name,$price,$stock >> $file2
+
 done < $file
 
 IFS=$OLDIFS
@@ -31,3 +30,10 @@ echo ${IDS[@]}
 echo ${NAMES[@]}
 echo ${PRICES[@]}
 echo ${STOCKS[@]}
+
+
+
+for (( i=0; i<=#IDS[@]; i++ ))
+do
+	echo -e ${IDS[0]} >> $file2
+done
