@@ -21,4 +21,4 @@ IFS=$OLDIFS
 
 
 
-# Result: ERRORS
+# Result: Shows two zenity list popup with 1 2 3 4 ... Random Data
