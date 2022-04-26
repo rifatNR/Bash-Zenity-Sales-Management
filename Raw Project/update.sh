@@ -1,4 +1,6 @@
-file="product.csv"
+# RUN: bash update.sh 5 "Books" 50 10
+
+file="product02.csv"
 file2="product02.csv"
 OLDIFS=$IFS
 IFS=','
@@ -8,8 +10,6 @@ IDS=()
 NAMES=()
 PRICES=()
 STOCKS=()
-
-true > $file2
 
 while read id name price stock
 do
@@ -31,7 +31,7 @@ IFS=$OLDIFS
 #echo ${PRICES[@]}
 #echo ${STOCKS[@]}
 
-
+true > $file2
 
 for (( i=0; i<=${#IDS[@]}-1; i++ ))
 do
@@ -65,9 +65,11 @@ do
 	fi
 	
 	
-	if [[ $i == 5 ]]
+	if [[ $i == $1 ]]
 	then
-		name="Mango Juice"
+		name=$2
+		price=$3
+		stock=$4
 	fi
 	
 	echo -e $id,$name,$price,$stock >> $file2
