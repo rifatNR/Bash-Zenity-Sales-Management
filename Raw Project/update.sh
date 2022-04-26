@@ -1,5 +1,6 @@
 # RUN: bash update.sh 5 "Books" 50 10
 
+# ==================== Copy CSV to Array ===========
 file="product02.csv"
 file2="product02.csv"
 OLDIFS=$IFS
@@ -30,8 +31,9 @@ IFS=$OLDIFS
 #echo ${NAMES[@]}
 #echo ${PRICES[@]}
 #echo ${STOCKS[@]}
+# =================================================
 
-true > $file2
+true > $file2 # Makes the file empty
 
 for (( i=0; i<=${#IDS[@]}-1; i++ ))
 do
