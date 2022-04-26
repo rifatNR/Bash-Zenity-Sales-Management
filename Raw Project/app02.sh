@@ -1,4 +1,5 @@
 file="product.csv"
+file2="product02.csv"
 OLDIFS=$IFS
 IFS=','
 [ ! -f $file ] && { echo "$file file not found"; exit 99; }
@@ -7,6 +8,8 @@ IDS=()
 NAMES=()
 PRICES=()
 STOCKS=()
+
+true > $file2
 
 while read id name price stock
 do
@@ -18,10 +21,11 @@ do
 	NAMES+=($name)
 	PRICES+=($price)
 	STOCKS+=($stock)
+	
+	echo -e $id,$name,$price,$stock >> $file2
 done < $file
 
 IFS=$OLDIFS
-
 
 echo ${IDS[@]}
 echo ${NAMES[@]}
