@@ -23,13 +23,7 @@ do
 
 done < $file
 # =================================================
-
-
-menu=("option1" "option2" "option3")
-desc=("description1" "description2" "description3")
-
-# this for loop will create a new array ("option1" "description1" "option2" ...)
-# there will be issues if the 2 arrays don't have the same length    
+ 
 for (( i=1; i<${#IDS[*]}; ++i)); do
     data+=( "${IDS[$i]}" "${NAMES[$i]}" "${PRICES[$i]}" "${STOCKS[$i]}" )
 done

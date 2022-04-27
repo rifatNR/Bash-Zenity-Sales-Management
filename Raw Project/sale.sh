@@ -78,7 +78,7 @@ do
 			echo -e $sale_id,$product_name,$sale_price,$customer_name,$quantity,$due,$date >> $sale_file
 			
 			zenity --notification --window-icon="info" --text="Product Sold"
-			bash product_list.sh
+			bash sale_list.sh
 		else
 			echo "Not enough stock."
 			zenity --error --text="Not enough stock!" --width=250
