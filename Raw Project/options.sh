@@ -2,7 +2,6 @@ ans=$(zenity --info \
 --title="Options" \
 --text "Select an option:" \
 --extra-button "Add" \
---extra-button "Update"  \
 --extra-button "Product List"  \
 --extra-button "Sale"  \
 --ok-label="Back")
@@ -16,9 +15,9 @@ then
 	bash add_form.sh
 fi
 
-if [[ $ans == "Update" ]]
+if [[ $ans == "Sale" ]]
 then
-	echo "Updating Existing Item"
+	echo "Showing Sales List"
 fi
 
 if [[ $ans == "Product List" ]]

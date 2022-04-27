@@ -1,8 +1,5 @@
 data=$(
-	zenity --forms --title="New book" --text="Add new book" \
-       --add-entry="Name" \
-       --add-entry="Price" \
-       --add-entry="Stock"
+	zenity --forms --title="New book" --text="Add new book" --add-entry="Name" --add-entry="Price" --add-entry="Stock"
 )
 
 
@@ -18,7 +15,7 @@ case $? in
     0)
     	if [ "$name" == "" ] | [ "$price" == "" ] | [ "$stock" == "" ]
     	then
-    		zenity --notification --window-icon="info" --text="Please fill the required field!"
+    		zenity --error --text="Please fill the required field!" --width=250
     		bash add_form.sh
     	else
     		echo $name
