@@ -50,11 +50,6 @@ do
 			bash sale_form.sh $1
 		fi
 		
-		if [[ $ans == "Update" ]]
-		then
-			bash update_form.sh $1
-		fi
-		
 		if [[ $ans == "" ]]
 		then
 			bash product_list.sh
