@@ -36,8 +36,8 @@ do
 	
 	if [[ $i == $1 ]]
 	then
-		ans=$(zenity --info --text="Name: $name \n Price: $price \n Stock: $stock" --width=300 \
-		--extra-button "Sale" --extra-button "Update")
+		ans=$(zenity --info --title=$name --text="Name: $name \nPrice: $price \nStock: $stock" --width=300 \
+		--extra-button "Sell" --extra-button "Update" --ok-label="Back")
 		
 		echo $ans
 		if [[ $ans == "Update" ]]
@@ -45,7 +45,7 @@ do
 			bash update_form.sh $1
 		fi
 	
-		if [[ $ans == "Sale" ]]
+		if [[ $ans == "Sell" ]]
 		then
 			bash sale_form.sh $1
 		fi

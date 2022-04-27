@@ -19,6 +19,6 @@ then
 	zenity --error --text="Wrong Password. Please try again." --width=250
 	bash login.sh
 else
-	zenity --info --text="Login Succesful" --width=250
+	zenity --notification --window-icon="info" --text="Login Succesful"
 	bash options.sh
 fi

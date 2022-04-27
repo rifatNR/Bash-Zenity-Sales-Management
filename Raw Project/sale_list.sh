@@ -45,9 +45,18 @@ ans=$(zenity --list --column="ID" \
 				--column="Date" \
 				--width 600 --height 550 "${data[@]}")
 
+ret=$?
 echo $ans
-echo $?
+echo $ret
 
-bash product_list.sh
+if [[ $ret == 0 ]]
+then
+	bash product_list.sh
+fi
+
+if [[ $ret == 1 ]]
+then
+	bash options.sh
+fi
 
 

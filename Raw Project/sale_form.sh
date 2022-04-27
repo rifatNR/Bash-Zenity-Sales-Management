@@ -1,22 +1,29 @@
 
 
 data=$(
-	zenity --forms --title="Update Product" --text="Update a product" \
+	zenity --forms --title="Sell Product" --text="Sell a product" \
 	--add-entry="Quantity" \
 	--add-entry="Customer" \
 	--add-entry="Due" \
 	--add-calendar="Date"
 )
 
+ret=$?
+echo $ans
+echo $ret
 
 IFS="|" read -r quantity customer_name due date <<< "$data" ;
-
-echo $?
 
 echo $quantity
 echo $customer_name
 echo $due
 echo $date
+
+if [[ $ret == 1 ]]
+then
+	bash product_list.sh
+	exit 99;
+fi
 
 if [ "$quantity" == "" ] | [ "$customer_name" == "" ] | [ "$due" == "" ] | [ "$date" == "" ]
 then
