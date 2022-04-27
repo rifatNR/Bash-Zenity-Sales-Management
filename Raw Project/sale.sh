@@ -1,4 +1,6 @@
 # RUN: bash sale.sh 5 20 "John Doe" 2 05-04-2022
+# bash sale.sh id quantity customer_name due date
+
 
 # ==================== Copy CSV to Array ===========
 file="product02.csv"
