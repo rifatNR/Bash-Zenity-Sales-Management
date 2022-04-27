@@ -20,9 +20,6 @@ case $? in
     		zenity --error --text="Please fill the required field!" --width=250
     		bash update_form.sh $1
     	else
-    		echo $name
-			echo $price
-			echo $stock
 			bash update.sh $1 $name $price $stock
 			echo "Product added."
 			zenity --notification --window-icon="info" --text="Product Updated"
