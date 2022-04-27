@@ -5,7 +5,7 @@ file="product02.csv"
 file2="product02.csv"
 OLDIFS=$IFS
 IFS=','
-[ ! -f $file ] && { echo "$file file not found"; exit 99; }
+[ ! -f $file2 ] && { echo "$file2 file not found"; exit 99; }
 
 IDS=()
 NAMES=()
