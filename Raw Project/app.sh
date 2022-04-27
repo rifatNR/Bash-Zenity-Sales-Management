@@ -1,7 +1,11 @@
-echo "AAAAAAAAAAAA"
+# For Zenity Help: zenity --help-general
 
-zenity --error --text="Please fill the required field" --width=250
+ans=$(zenity --question --text="Welcome to the sales management system." --ok-label="Login" --cancel-label="Quit" --width=300)
 
-zenity --notification --window-icon="info" --text="There are system updates necessary!"
+ret=$?
+echo $ans
 
-echo "SSSSSSSSSSSS"
+if [[ $ret == 0 ]]
+then
+	bash login.sh
+fi
