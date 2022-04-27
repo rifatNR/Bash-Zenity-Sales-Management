@@ -1,5 +1,5 @@
 data=$(
-	zenity --forms --title="New book" --text="Add new book" --add-entry="Name" --add-entry="Price" --add-entry="Stock"
+	zenity --forms --title="Add Product" --text="Add new product" --add-entry="Name" --add-entry="Price" --add-entry="Stock"
 )
 
 

@@ -34,24 +34,16 @@ for (( i=1; i<${#IDS[*]}; ++i)); do
     data+=( "${IDS[$i]}" "${NAMES[$i]}" "${PRICES[$i]}" "${STOCKS[$i]}" )
 done
 
-ans=$(zenity --list --column="ID" --column="Name" --column="Price" --column="Stock" --width 350 --height 550 "${data[@]}" --extra-button "Update" --extra-button "Sale")
+ans=$(zenity --list --column="ID" --column="Name" --column="Price" --column="Stock" --width 350 --height 550 "${data[@]}")
 
 echo $ans
 echo $?
 
-if [[ $ans == "" ]]
+if [[ $ans != "" ]]
 then
+	echo "Showing Selected Item"
+else
 	bash options.sh
-fi
-
-if [[ $ans == "Update" ]]
-then
-	bash update_form.sh
-fi
-
-if [[ $ans == "Sale" ]]
-then
-	bash sale_form.sh
 fi
 
 
