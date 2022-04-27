@@ -73,17 +73,20 @@ do
 			sale_price=$price
 			
 			bash update.sh $id $name $price $new_stock
+			
+			# ================== Add Sales ==================
+			echo -e $sale_id,$product_name,$sale_price,$customer_name,$quantity,$due,$date >> $sale_file
+			
+			zenity --notification --window-icon="info" --text="Product Sold"
+			bash product_list.sh
 		else
 			echo "Not enough stock."
-			exit 99;
+			zenity --error --text="Not enough stock!" --width=250
+			bash product_list.sh
 		fi
 		
 	fi
 done
-
-# ================== Add Sales ==================
-
-echo -e $sale_id,$product_name,$sale_price,$customer_name,$quantity,$due,$date >> $sale_file
 
 
 
