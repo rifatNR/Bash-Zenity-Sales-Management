@@ -1,15 +1,24 @@
 
-ENTRY=`zenity --password --username`
+data=`zenity --password --username`
 
 ret=$?
 
 if [[ $ret == 1 ]]
 then
 	bash app.sh
+	exit 99;
 fi
 
-if [[ $ret == 0 ]]
+IFS="|" read -r username password <<< "$data" ;
+
+echo $username
+echo $password
+
+if [[ $password != "sadd" ]]
 then
-	echo "User Name: `echo $ENTRY | cut -d'|' -f1`"
- 	echo "Password : `echo $ENTRY | cut -d'|' -f2`"
+	zenity --error --text="Wrong Password. Please try again." --width=250
+	bash login.sh
+else
+	zenity --info --text="Login Succesful" --width=250
+	bash options.sh
 fi

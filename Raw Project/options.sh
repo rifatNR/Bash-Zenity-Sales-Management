@@ -15,9 +15,10 @@ then
 	bash add_form.sh
 fi
 
-if [[ $ans == "Sale" ]]
+if [[ $ans == "Sales Report" ]]
 then
 	echo "Showing Sales List"
+	bash sale_list.sh
 fi
 
 if [[ $ans == "Product List" ]]
