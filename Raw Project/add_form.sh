@@ -19,12 +19,15 @@ case $? in
     	if [ "$name" == "" ] | [ "$price" == "" ] | [ "$stock" == "" ]
     	then
     		zenity --notification --window-icon="info" --text="Please fill the required field!"
+    		bash add_form.sh
     	else
     		echo $name
 			echo $price
 			echo $stock
 			bash add.sh $name $price $stock
 			echo "Product added."
+			zenity --notification --window-icon="info" --text="Product Added"
+			bash product_list.sh
     	fi
     	;;
     1)
