@@ -1,10 +1,10 @@
 ans=$(zenity --info \
---title="Options" \
---text "Select an option:" \
+--title="Select an option" \
 --extra-button "Add" \
 --extra-button "Product List"  \
---extra-button "Sale"  \
---ok-label="Back")
+--extra-button "Sales Report"  \
+--width=300 \
+--ok-label="Logout")
 
 echo $?
 echo $ans
