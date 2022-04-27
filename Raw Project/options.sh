@@ -24,7 +24,7 @@ fi
 if [[ $ans == "Product List" ]]
 then
 	echo "Product List Shown"
-	bash list.sh
+	bash product_list.sh
 fi
 
 

@@ -30,14 +30,21 @@ desc=("description1" "description2" "description3")
 
 # this for loop will create a new array ("option1" "description1" "option2" ...)
 # there will be issues if the 2 arrays don't have the same length    
-for (( i=0; i<${#IDS[*]}; ++i)); do
+for (( i=1; i<${#IDS[*]}; ++i)); do
     data+=( "${IDS[$i]}" "${NAMES[$i]}" "${PRICES[$i]}" "${STOCKS[$i]}" )
 done
 
-ans=$(zenity --list --column="ID" --column="Name" --column="Price" --column="Stock" --height 170 "${data[@]}")
+ans=$(zenity --list --column="ID" --column="Name" --column="Price" --column="Stock" --width 350 --height 550 "${data[@]}")
 
 echo $ans
 echo $?
+
+if [[ $ans != "" ]]
+then
+	echo "Showing Selected Item"
+else
+	bash options.sh
+fi
 
 
 
