@@ -42,6 +42,7 @@ echo $?
 if [[ $ans != "" ]]
 then
 	echo "Showing Selected Item"
+	bash view.sh $ans
 else
 	bash options.sh
 fi
