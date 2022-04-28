@@ -1,5 +1,6 @@
 sudo chmod -R 777 ./Base_Template
 
+file="users.csv"
 data=`zenity --title="Register Account" --password --username`
 
 ret=$?
@@ -15,13 +16,34 @@ IFS="|" read -r username password <<< "$data" ;
 echo $username
 echo $password
 
-if [ $username == "" ] | [ $password == "" ]
+if [ "$username" == "" ] | [ "$password" == "" ]
 then
 	zenity --error --text="Username or Password cannot be empty" --width=250
-	bash login.sh
+	bash signup.sh
 	exit 99;
 fi
 
-cp -R ./Base_Template ./$username
+# Checking if user already exist ============================
+while read existing_username existing_password
+do
+	echo "================="
+	echo $existing_username
+	echo "================="
+	if [ "$existing_username" == "$username" ]; 
+	then
+		zenity --error --text="User already exist" --width=250
+		bash signup.sh
+		exit 99;
+	fi
+
+done < $file
+# ============================================================
+
+
+cp -R ./Base_Template ./$username # Copying & Renaming base file
+
+echo -e $username,$password >> $file # Adding new user
+
 zenity --notification --window-icon="info" --text="User Successfully Registerred. Please Login"
+
 bash login.sh
