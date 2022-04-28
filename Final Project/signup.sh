@@ -46,6 +46,6 @@ cp -R ./Base_Template ./$username # Copying & Renaming base file
 
 echo -e $username,$password >> $file # Adding new user
 
-zenity --notification --window-icon="info" --text="User Successfully Registerred. Please Login"
+zenity --notification --window-icon="info" --text="Welcome $username. Please Login"
 
 bash login.sh

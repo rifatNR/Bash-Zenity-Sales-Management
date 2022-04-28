@@ -1,6 +1,5 @@
 ans=$(zenity --info \
---title="Welcome" \
---text="Select an option"
+--title="Select an option" \
 --extra-button "Add" \
 --extra-button "Product List"  \
 --extra-button "Sales Report"  \
