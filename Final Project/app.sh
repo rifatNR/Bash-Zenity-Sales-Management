@@ -1,6 +1,6 @@
 # For Zenity Help: zenity --help-general
 
-ans=$(zenity --question --text="Welcome to the sales management system." --ok-label="Login" --extra-button "Signup" --cancel-label="Quit" --width=300)
+ans=$(zenity --question --title="Sales Management System" --text="Welcome to the sales management system." --ok-label="Login" --extra-button "Signup" --cancel-label="Quit" --width=300)
 
 ret=$?
 echo $ans
