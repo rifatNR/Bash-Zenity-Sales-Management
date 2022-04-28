@@ -1,12 +1,13 @@
 ans=$(zenity --info \
---title="Select an option" \
+--title="Welcome" \
+--text="Select an option"
 --extra-button "Add" \
 --extra-button "Product List"  \
 --extra-button "Sales Report"  \
 --width=300 \
 --ok-label="Logout")
 
-echo $?
+ret=$?
 echo $ans
 
 if [[ $ans == "Add" ]]
@@ -25,6 +26,12 @@ if [[ $ans == "Product List" ]]
 then
 	echo "Product List Shown"
 	bash product_list.sh
+fi
+
+if [[ $ret == 0 ]]
+then
+	zenity --notification --window-icon="info" --text="Logout Successful"
+	bash app.sh
 fi
 
 

@@ -3,13 +3,14 @@ data=`zenity --title="Login" --password --username`
 
 ret=$?
 
+IFS=','
+IFS="|" read -r username password <<< "$data" ;
+
 if [[ $ret == 1 ]]
 then
 	bash app.sh
 	exit 99;
 fi
-
-IFS="|" read -r username password <<< "$data" ;
 
 echo $username
 echo $password
@@ -22,25 +23,25 @@ then
 fi
 
 
-# Checking if user already exist ============================
-while read existing_username
+# Checking if user  exist ===================================
+
+while read existing_username existing_password
 do
 	if [[ $existing_username == $username ]]; 
 	then
-		zenity --error --text="User already exist" --width=250
-		bash signup.sh
+		if [[ $password != $existing_password ]]
+		then
+			zenity --error --text="Wrong Password. Please try again." --width=250
+			bash login.sh
+		else
+			zenity --notification --window-icon="info" --text="Login Succesful"
+			cd ./$username
+			bash options.sh
+		fi
 		exit 99;
 	fi
-
 done < $file
-# ============================================================
 
-if [[ $password != "sadd" ]]
-then
-	zenity --error --text="Wrong Password. Please try again." --width=250
-	bash login.sh
-else
-	zenity --notification --window-icon="info" --text="Login Succesful"
-	cd ./$username
-	bash options.sh
-fi
+zenity --error --text="User not found" --width=250
+bash login.sh
+# ============================================================
